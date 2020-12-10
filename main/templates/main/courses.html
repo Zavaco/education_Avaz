@@ -1,0 +1,329 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Page info -->
+									{% for el in pc_info %}
+											{% if el.id == 1 %}
+	<div class="page-info-section set-bg" data-setbg="{{ el.page_courses_img.url }}">
+											{% endif %}
+									{% endfor %}
+		<div class="container">
+			<div class="site-breadcrumb">
+				<a href="#">Home</a>
+				<span>Courses</span>
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+
+<!-- search section -->
+	<section class="search-section ss-other-page">
+		<div class="container">
+			<div class="search-warp">
+				<div class="section-title text-white">
+					<h2><span>Search your course</span></h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1">
+						<!-- search form -->
+						<form class="course-search-form">
+							<input type="text" placeholder="Course">
+							<input type="text" class="last-m" placeholder="Category">
+							<button class="site-btn btn-dark">Search Couse</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- search section end -->
+
+
+	<!-- course section -->
+	<section class="course-section spad pb-0">
+		<div class="course-warp">
+			<ul class="course-filter controls">
+				{% for el in featured_course %}
+								{% if el.id == 1 %}
+				<li class="control" data-filter="all">{{ el.fc_category }}</li>
+
+								{% elif el.id == 2 %}
+				<li class="control" data-filter=".finance">{{ el.fc_category }}</li>
+
+								{% elif el.id == 3 %}
+				<li class="control" data-filter=".design">{{ el.fc_category }}</li>
+
+								{% elif el.id == 4 %}
+				<li class="control" data-filter=".web">{{ el.fc_category }}</li>
+
+								{% elif el.id == 5 %}
+				<li class="control" data-filter=".photo">{{ el.fc_category }}</li>
+									{% endif %}
+				{% endfor %}
+			</ul>
+			<div class="row course-items-area">
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+					<div class="course-item">
+						{% for el in featured_course %}
+								{% if el.id == 1 %}
+						<div class="course-thumb set-bg" data-setbg="{{ el.fc_image.url }}">
+							<div class="price">{{ el.fc_price }}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><a href="{% url 'main:f_course' el.slug %}">{{ el.fc_title }}</a></h5>
+								<p>{{ el.fc_message }}</p>
+								<div class="students">{{ el.fc_info }}</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="{{ el.fc_author_image.url }}"></div>
+								<p>{{ el.fc_author_name }} <span>{{ el.fc_author_position }}</span></p>
+								{% endif %}
+						{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 design">
+					<div class="course-item">
+						{% for el in featured_course %}
+								{% if el.id == 2 %}
+						<div class="course-thumb set-bg" data-setbg="{{ el.fc_image.url }}">
+							<div class="price">{{ el.fc_price }}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><a href="{% url 'main:f_course' el.slug %}">{{ el.fc_title }}</a></h5>
+								<p>{{ el.fc_message }}</p>
+								<div class="students">{{ el.fc_info }}</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="{{ el.fc_author_image.url }}"></div>
+								<p>{{ el.fc_author_name }}<span>{{ el.fc_author_position }}</span></p>
+								{% endif %}
+						{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 web">
+					<div class="course-item">
+						{% for el in featured_course %}
+								{% if el.id == 3 %}
+						<div class="course-thumb set-bg" data-setbg="{{ el.fc_image.url }}">
+							<div class="price">{{ el.fc_price }}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><a href="{% url 'main:f_course' el.slug %}">{{ el.fc_title }}</a></h5>
+								<p>{{ el.fc_message }}</p>
+								<div class="students">{{ el.fc_info }}</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="{{ el.fc_author_image.url }}"></div>
+								<p>{{ el.fc_author_name }}<span>{{ el.fc_author_position }}</span></p>
+								{% endif %}
+						{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 photo">
+					<div class="course-item">
+						{% for el in featured_course %}
+								{% if el.id == 4 %}
+						<div class="course-thumb set-bg" data-setbg="{{ el.fc_image.url }}">
+							<div class="price">{{ el.fc_price }}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><a href="{% url 'main:f_course' el.slug %}">{{ el.fc_title }}</a></h5>
+								<p>{{ el.fc_message }}</p>
+								<div class="students">{{ el.fc_info }}</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="{{ el.fc_author_image.url }}"></div>
+								<p>{{ el.fc_author_name }}<span>{{ el.fc_author_position }}</span></p>
+								{% endif %}
+						{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 finance">
+					<div class="course-item">
+						{% for el in featured_course %}
+								{% if el.id == 5 %}
+						<div class="course-thumb set-bg" data-setbg="{{ el.fc_image.url }}">
+							<div class="price">{{ el.fc_price }}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><a href="{% url 'main:f_course' el.slug %}">{{ el.fc_title }}</a></h5>
+								<p>{{ el.fc_message }}</p>
+								<div class="students">{{ el.fc_info }}</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="{{ el.fc_author_image.url }}"></div>
+								<p>{{ el.fc_author_name }} <span>{{ el.fc_author_position }}</span></p>
+								{% endif %}
+						{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 design">
+					<div class="course-item">
+						{% for el in featured_course %}
+								{% if el.id == 6 %}
+						<div class="course-thumb set-bg" data-setbg="{{ el.fc_image.url }}">
+							<div class="price">{{ el.fc_price }}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><a href="{% url 'main:f_course' el.slug %}">{{ el.fc_title }}</a></h5>
+								<p>{{ el.fc_message }}</p>
+								<div class="students">{{ el.fc_info }}</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="{{ el.fc_author_image.url }}"></div>
+								<p>{{ el.fc_author_name }}<span>{{ el.fc_author_position }}</span></p>
+								{% endif %}
+						{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 web">
+					<div class="course-item">
+						{% for el in featured_course %}
+								{% if el.id == 7 %}
+						<div class="course-thumb set-bg" data-setbg="{{ el.fc_image.url }}">
+							<div class="price">{{ el.fc_price }}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><a href="{% url 'main:f_course' el.slug %}">{{ el.fc_title }}</a></h5>
+								<p>{{ el.fc_message }}</p>
+								<div class="students">{{ el.fc_info }}</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="{{ el.fc_author_image.url }}"></div>
+								<p>{{ el.fc_author_name }}<span>{{ el.fc_author_position }}</span></p>
+								{% endif %}
+						{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="mix col-lg-3 col-md-4 col-sm-6 photo">
+					<div class="course-item">
+							{% for el in featured_course %}
+								{% if el.id == 8 %}
+						<div class="course-thumb set-bg" data-setbg="{{ el.fc_image.url }}">
+							<div class="price">{{ el.fc_price }}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><a href="{% url 'main:f_course' el.slug %}">{{ el.fc_title }}</a></h5>
+								<p>{{ el.fc_message }}</p>
+								<div class="students">{{ el.fc_info }}</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="{{ el.fc_author_image.url }}"></div>
+								<p>{{ el.fc_author_name }}<span>{{ el.fc_author_position }}</span></p>
+								{% endif %}
+						{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="featured-courses">
+				<div class="featured-course course-item">
+						{% for el in pc_info %}
+								{% if el.id == 1 %}
+					<div class="course-thumb set-bg" data-setbg="{{ el.page_courses_body_image.url }}">
+						<div class="price">{{ el.page_courses_price }}</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6 offset-lg-6 pl-0">
+							<div class="course-info">
+								<div class="course-text">
+									<div class="fet-note">{{ el.pc_btn }}</div>
+									<h5>{{ el.pc_title }}</h5>
+									<p>{{ el.pc_message }}</p>
+									<div class="students">{{ el.pc_info }}</div>
+								</div>
+								<div class="course-author">
+									<div class="ca-pic set-bg" data-setbg="{{ el.pc_author_image.url }}"></div>
+									<p>{{ el.pc_author_name }}<span>{{ el.pc_author_position }}</span></p>
+
+									{% endif %}
+								{% endfor %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="featured-course course-item">
+					{% for el in pc_info %}
+								{% if el.id == 2 %}
+					<div class="course-thumb set-bg" data-setbg="{{ el.page_courses_body_image.url }}">
+						<div class="price">{{ el.page_courses_price }}</div>
+					</div>
+					<div class="row">
+						<div class="col-lg-6 pr-0">
+							<div class="course-info">
+								<div class="course-text">
+									<div class="fet-note">{{ el.pc_btn }}</div>
+									<h5>{{ el.pc_title }}</h5>
+									<p>{{ el.pc_message }}</p>
+									<div class="students">{{ el.pc_info }}</div>
+								</div>
+								<div class="course-author">
+									<div class="ca-pic set-bg" data-setbg="{{ el.pc_author_image.url }}"></div>
+									<p>{{ el.pc_author_name }}<span>{{ el.pc_author_position }}</span></p>
+										{% endif %}
+								{% endfor %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- course section end -->
+
+<!-- banner section -->
+	<section class="banner-section spad">
+		<div class="container">
+			<div class="section-title mb-0 pb-2">
+				{% for el in page %}
+				<h2>{{ el.join_title }}</h2>
+				{% endfor %}
+				{% for el in page %}
+				<p>{{ el.join_text }}</p>
+				{% endfor %}
+			</div>
+			<div class="text-center pt-5">
+				<a href="#" class="site-btn">Register Now</a>
+			</div>
+		</div>
+	</section>
+	<!-- banner section end -->
+
+
+
+{% endblock %}

@@ -1,0 +1,161 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Page info -->			{% for el in page_news %}
+									{% if el.id == 1 %}
+	<div class="page-info-section set-bg" data-setbg="{{ el.pn_main_image.url }}">
+									{% endif %}
+							{% endfor %}
+		<div class="container">
+			<div class="site-breadcrumb">
+				<a href="#">Home</a>
+				<span>Blog</span>
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+
+<!-- search section -->
+	<section class="search-section ss-other-page">
+		<div class="container">
+			<div class="search-warp">
+				<div class="section-title text-white">
+					<h2><span>Search your course</span></h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1">
+						<!-- search form -->
+						<form class="course-search-form">
+							<input type="text" placeholder="Course">
+							<input type="text" class="last-m" placeholder="Category">
+							<button class="site-btn btn-dark">Search Couse</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- search section end -->
+
+
+<!-- Page  -->
+	<section class="blog-page spad pb-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9">
+					<!-- blog post -->
+					{% for el in page_news %}
+					<div class="blog-post">
+						<img src="{{ el.pn_body_image.url }}" alt="">
+						<h3>{{ el.pn_body_title }}</h3>
+						<div class="blog-metas">
+							<div class="blog-meta author">
+								<div class="post-author set-bg" data-setbg="{{ el.pn_author_img.url }}"></div>
+								<a href="#">{{ el.pn_author_name }}</a>
+							</div>
+							<div class="blog-meta">
+								<a href="#">{{ el.pn_author_position }}</a>
+							</div>
+							<div class="blog-meta">
+								<a href="#">{{ el.pn_author_date }}</a>
+							</div>
+							<div class="blog-meta">
+								<a href="#">{{ el.pn_author_comment }}</a>
+							</div>
+						</div>
+						<p>{{ el.pn_body_text }}</p>
+						<a href="{% url 'main:news_detail' el.slug %}" class="site-btn readmore">{{ el.pn_body_btn }}</a>
+					</div>
+					{% endfor %}
+				</div>
+				<div class="col-lg-3 col-md-5 col-sm-9 sidebar">
+					<div class="sb-widget-item">
+						<form class="search-widget">
+							<input type="text" placeholder="Search">
+							<button><i class="fa fa-search"></i></button>
+						</form>
+					</div>
+					<div class="sb-widget-item">
+						{% for el in page_side %}
+								{% if el.id == 1 %}
+						<h4 class="sb-w-title">{{ el.ns_categories }}</h4>
+								{% endif %}
+						{% endfor %}
+
+						<ul>
+							{% for el in page_side %}
+									{% if el.id < 7 %}
+							<li><a href="#">{{ el.ns_categories_info }}</a></li>
+									{% endif %}
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="sb-widget-item">
+						{% for el in page_side %}
+								{% if el.id == 1 %}
+						<h4 class="sb-w-title">{{ el.ns_month }}</h4>
+								{% endif %}
+						{% endfor %}
+						<ul>
+							{% for el in page_side %}
+									{% if el.id < 7 %}
+							<li><a href="#">{{ el.ns_month_info }}</a></li>
+									{% endif %}
+							{% endfor %}
+						</ul>
+					</div>
+					<div class="sb-widget-item">
+						{% for el in page_side %}
+									{% if el.id == 1 %}
+						<h4 class="sb-w-title">{{ el.ns_archives }}</h4>
+									{% endif %}
+						{% endfor %}
+						<div class="tags">
+							{% for el in page_side %}
+									{% if el.id < 9 %}
+							<a href="#">{{ el.ns_archives_info }}</a>
+									{% endif %}
+							{% endfor %}
+
+						</div>
+					</div>
+					<div class="sb-widget-item">
+						<div class="add">
+							{% for el in page_side %}
+									{% if el.id == 1 %}
+							<a href="#"><img src="{{ el.ns_img.url }}" alt=""></a>
+									{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Page end -->
+
+
+
+<!-- banner section -->
+	<section class="banner-section spad">
+		<div class="container">
+			<div class="section-title mb-0 pb-2">
+				{% for el in page %}
+				<h2>{{ el.join_title }}</h2>
+				{% endfor %}
+				{% for el in page %}
+				<p>{{ el.join_text }}</p>
+				{% endfor %}
+			</div>
+			<div class="text-center pt-5">
+				<a href="#" class="site-btn">Register Now</a>
+			</div>
+		</div>
+	</section>
+	<!-- banner section end -->
+
+
+
+{% endblock %}

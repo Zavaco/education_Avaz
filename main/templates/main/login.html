@@ -1,0 +1,38 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<!-- Page info -->						{% for el in page %}
+	<div class="page-info-section set-bg" data-setbg="{{ el.main_image.url }}">
+										{% endfor %}
+		<div class="container">
+			<div class="site-breadcrumb">
+				<a href="#">Home</a>
+				<span>Login</span>
+
+				<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<form class="intro-newslatter" method="post">
+						{% csrf_token %}
+
+						<input type="text" placeholder="E-mail">
+						<input type="text" class="last-s" placeholder="Password">
+						<button class="site-btn" type="submit">Log in</button>
+					</form>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+
+
+
+
+
+
+
+{% endblock %}

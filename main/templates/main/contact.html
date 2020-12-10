@@ -1,0 +1,110 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Page info -->
+	<div class="page-info-section set-bg" data-setbg="{{ p_contact.p_contact_bg.url }}">
+		<div class="container">
+			<div class="site-breadcrumb">
+				<a href="#">Home</a>
+				<span>Contact</span>
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+
+<!-- search section -->
+	<section class="search-section ss-other-page">
+		<div class="container">
+			<div class="search-warp">
+				<div class="section-title text-white">
+					<h2><span>Search your course</span></h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1">
+						<!-- search form -->
+						<form class="course-search-form">
+							<input type="text" placeholder="Course">
+							<input type="text" class="last-m" placeholder="Category">
+							<button class="site-btn btn-dark">Search Couse</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- search section end -->
+
+<!-- Page -->
+	<section class="contact-page spad pb-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-8">
+					<div class="contact-form-warp">
+						<div class="section-title text-white text-left">
+							<h2>{{  p_contact.p_form_title }}</h2>
+							<p>{{  p_contact.p_form_info }}</p>
+						</div>
+						<form class="contact-form">
+							<input type="text" placeholder="Your Name">
+							<input type="text" placeholder="Your E-mail">
+							<input type="text" placeholder="Subject">
+							<textarea placeholder="Message"></textarea>
+							<button class="site-btn">Sent Message</button>
+						</form>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="contact-info-area">
+						<div class="section-title text-left p-0">
+							<h2>{{ p_contact.p_sidebar_title }}</h2>
+							<p>{{ p_contact.p_sidebar_info }}</p>
+						</div>
+						<div class="phone-number">
+							<span>Direct Line</span>
+							<h2>{{ side_info.footer_info1 }}</h2>
+						</div>
+						<ul class="contact-list">
+							<li>{{ side_info.footer_info }}</li>
+							<li>{{ side_info.footer_info1 }}</li>
+							<li>{{ side_info.footer_info2 }}</li>
+						</ul>
+						<div class="social-links">
+							<a href="#"><i class="fa fa-pinterest"></i></a>
+							<a href="#"><i class="fa fa-facebook"></i></a>
+							<a href="#"><i class="fa fa-twitter"></i></a>
+							<a href="#"><i class="fa fa-dribbble"></i></a>
+							<a href="#"><i class="fa fa-behance"></i></a>
+							<a href="#"><i class="fa fa-linkedin"></i></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="map-canvas"> <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d11982.544540690993!2d69.33453!3d41.338525!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3772abeffc72e7b8!2z0KPQvdC40LLQtdGA0YHQuNGC0LXRgiDQmNC90YXQsA!5e0!3m2!1sru!2s!4v1603995729162!5m2!1sru!2s"
+                                          width="1150" height="485" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe></div>
+		</div>
+	</section>
+	<!-- Page end -->
+
+
+<!-- banner section -->
+	<section class="banner-section spad">
+		<div class="container">
+			<div class="section-title mb-0 pb-2">
+				{% for el in page %}
+				<h2>{{ el.join_title }}</h2>
+				{% endfor %}
+				{% for el in page %}
+				<p>{{ el.join_text }}</p>
+				{% endfor %}
+			</div>
+			<div class="text-center pt-5">
+				<a href="#" class="site-btn">Register Now</a>
+			</div>
+		</div>
+	</section>
+	<!-- banner section end -->
+
+
+{% endblock %}

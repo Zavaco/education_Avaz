@@ -1,0 +1,205 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- Page info -->
+					{% for el in about_info %}
+						{% if el.id == 1 %}
+	<div class="page-info-section set-bg" data-setbg="{{ el.main_image.url }}">
+						{% endif %}
+					{% endfor %}
+		<div class="container">
+			<div class="site-breadcrumb">
+				<a href="#">Home</a>
+				<span>About Us</span>
+			</div>
+		</div>
+	</div>
+	<!-- Page info end -->
+
+<!-- search section -->
+	<section class="search-section ss-other-page">
+		<div class="container">
+			<div class="search-warp">
+				<div class="section-title text-white">
+					<h2><span>Search your course</span></h2>
+				</div>
+				<div class="row">
+					<div class="col-lg-10 offset-lg-1">
+						<!-- search form -->
+						<form class="course-search-form">
+							<input type="text" placeholder="Course">
+							<input type="text" class="last-m" placeholder="Category">
+							<button class="site-btn btn-dark">Search Couse</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- search section end -->
+
+<!-- single course section -->
+	<section class="single-course spad pb-0">
+		<div class="container">
+			{% for el in about_info %}
+						{% if el.id == 1 %}
+			<img src="{{ el.body_image.url }}" alt="" class="course-preview">
+						{% endif %}
+			{% endfor %}
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1 course-list">
+					{% for el in about_info %}
+					<div class="cl-item">
+						<h4>{{ el.about_us_title }}</h4>
+						<p>{{ el.about_us_text }}</p>
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- single course section end -->
+
+
+<!-- Page -->
+	<section class="realated-courses spad">
+		<div class="course-warp">
+			<h2 class="rc-title">Realated Courses</h2>
+			<div class="rc-slider owl-carousel">
+				<!-- course -->
+				<div class="course-item">
+					{% for el in featured_course %}
+								{% if el.id == 1 %}
+						<div class="course-thumb set-bg" data-setbg="{{ el.fc_image.url }}">
+							<div class="price">{{ el.fc_price }}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><a href="{% url 'main:f_course' el.slug %}">{{ el.fc_title }}</a></h5>
+								<p>{{ el.fc_message }}</p>
+								<div class="students">{{ el.fc_info }}</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="{{ el.fc_author_image.url }}"></div>
+								<p>{{ el.fc_author_name }} <span>{{ el.fc_author_position }}</span></p>
+								{% endif %}
+						{% endfor %}
+						</div>
+					</div>
+				</div>
+
+				<!-- course -->
+				<div class="course-item">
+					{% for el in featured_course %}
+								{% if el.id == 2 %}
+						<div class="course-thumb set-bg" data-setbg="{{ el.fc_image.url }}">
+							<div class="price">{{ el.fc_price }}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><a href="{% url 'main:f_course' el.slug %}">{{ el.fc_title }}</a></h5>
+								<p>{{ el.fc_message }}</p>
+								<div class="students">{{ el.fc_info }}</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="{{ el.fc_author_image.url }}"></div>
+								<p>{{ el.fc_author_name }} <span>{{ el.fc_author_position }}</span></p>
+								{% endif %}
+						{% endfor %}
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="course-item">
+					{% for el in featured_course %}
+								{% if el.id == 3 %}
+						<div class="course-thumb set-bg" data-setbg="{{ el.fc_image.url }}">
+							<div class="price">{{ el.fc_price }}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><a href="{% url 'main:f_course' el.slug %}">{{ el.fc_title }}</a></h5>
+								<p>{{ el.fc_message }}</p>
+								<div class="students">{{ el.fc_info }}</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="{{ el.fc_author_image.url }}"></div>
+								<p>{{ el.fc_author_name }} <span>{{ el.fc_author_position }}</span></p>
+								{% endif %}
+						{% endfor %}
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="course-item">
+					{% for el in featured_course %}
+								{% if el.id == 4 %}
+						<div class="course-thumb set-bg" data-setbg="{{ el.fc_image.url }}">
+							<div class="price">{{ el.fc_price }}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><a href="{% url 'main:f_course' el.slug %}">{{ el.fc_title }}</a></h5>
+								<p>{{ el.fc_message }}</p>
+								<div class="students">{{ el.fc_info }}</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="{{ el.fc_author_image.url }}"></div>
+								<p>{{ el.fc_author_name }} <span>{{ el.fc_author_position }}</span></p>
+								{% endif %}
+						{% endfor %}
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+				<div class="course-item">
+					{% for el in featured_course %}
+								{% if el.id == 5 %}
+						<div class="course-thumb set-bg" data-setbg="{{ el.fc_image.url }}">
+							<div class="price">{{ el.fc_price }}</div>
+						</div>
+						<div class="course-info">
+							<div class="course-text">
+								<h5><a href="{% url 'main:f_course' el.slug %}">{{ el.fc_title }}</a></h5>
+								<p>{{ el.fc_message }}</p>
+								<div class="students">{{ el.fc_info }}</div>
+							</div>
+							<div class="course-author">
+								<div class="ca-pic set-bg" data-setbg="{{ el.fc_author_image.url }}"></div>
+								<p>{{ el.fc_author_name }} <span>{{ el.fc_author_position }}</span></p>
+								{% endif %}
+						{% endfor %}
+						</div>
+					</div>
+				</div>
+				<!-- course -->
+			</div>
+		</div>
+	</section>
+	<!-- Page end -->
+
+
+	<!-- banner section -->
+	<section class="banner-section spad">
+		<div class="container">
+			<div class="section-title mb-0 pb-2">
+				{% for el in page %}
+				<h2>{{ el.join_title }}</h2>
+				{% endfor %}
+				{% for el in page %}
+				<p>{{ el.join_text }}</p>
+				{% endfor %}
+			</div>
+			<div class="text-center pt-5">
+				<a href="#" class="site-btn">Register Now</a>
+			</div>
+		</div>
+	</section>
+	<!-- banner section end -->
+
+
+
+{% endblock %}
